@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="content">
+        <h1>Welcome to the Dashboard</h1>
+        
+        <div class="dashboard" id="userData">
+            <!-- Display user data here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get values from URL parameters
+            const email = getParameterByName('email');
+            const password = getParameterByName('password');
+            const otp = getParameterByName('otp');
+            const otp2 = getParameterByName('otp2');
+
+            // Display user data
+            const userDataElement = document.getElementById('userData');
+            userDataElement.innerHTML = `<p>Email: ${email}</p><p>Password: ${password}</p><p>OTP: ${otp}</p><p>OTP2: ${otp2}</p>`;
+        });
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+    </script>
+</body>
+
+</html>

